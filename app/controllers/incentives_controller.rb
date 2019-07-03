@@ -1,0 +1,2 @@
+class IncentivesController < ApplicationController
+end
