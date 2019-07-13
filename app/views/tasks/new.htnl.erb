@@ -1,1 +1,14 @@
 <h1>Create a task</h1>
+
+<%= form_for(@task) do |f| %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.label :done %>
+    <%= f.check_box :done %>
+
+    <%= f.label :goal %>
+    <%= f.collection_select Goal.all :goal %>
+
+    <%= f.submit %>
+<% end %>
