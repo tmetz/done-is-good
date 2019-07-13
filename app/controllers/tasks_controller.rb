@@ -20,6 +20,10 @@ class TasksController < ApplicationController
     end
 
     def show
+        @task = Task.find_by(id: params[:id])
+        if !@task
+            redirect_to tasks_path
+        end
     end
 
     private
