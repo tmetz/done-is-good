@@ -2,3 +2,7 @@
 
 <%= @task.description %>
 <%= @task.done %>
+
+<%= link_to "Edit Task", edit_task_path(@task) %>
+
+<%= link_to "Delete Task", task_path(@task), method: :delete %>

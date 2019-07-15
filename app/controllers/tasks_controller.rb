@@ -36,6 +36,12 @@ class TasksController < ApplicationController
         end
     end
 
+    def destroy
+        set_task
+        @task.destroy
+        redirect_to tasks_path
+    end
+
     private
 
     def set_task
