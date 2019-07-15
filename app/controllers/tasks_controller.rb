@@ -27,6 +27,15 @@ class TasksController < ApplicationController
         set_task
     end
 
+    def update
+        set_task
+        if @task.update(task_params)
+            redirect_to task_path(@task)
+        else
+            render :edit
+        end
+    end
+
     private
 
     def set_task
