@@ -20,13 +20,21 @@ class TasksController < ApplicationController
     end
 
     def show
+        set_task
+    end
+
+    def edit
+        set_task
+    end
+
+    private
+
+    def set_task
         @task = Task.find_by(id: params[:id])
         if !@task
             redirect_to tasks_path
         end
     end
-
-    private
 
     def task_params
         params.require(:task).permit(:description, :done)
