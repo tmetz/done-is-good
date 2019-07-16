@@ -7,8 +7,9 @@
     <%= f.label :done %>
     <%= f.check_box :done %>
 
-    <%= f.label :goal %>
-    <%= f.collection_select Goal.all :goal %>
+    <br><br>
+    <%= f.label :goal, "Assign to a goal" %>
+    <%= f.collection_select :goal_id, Goal.all, :id, :name %>
 
     <%= f.submit %>
 <% end %>
