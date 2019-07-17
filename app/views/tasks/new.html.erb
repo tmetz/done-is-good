@@ -9,7 +9,7 @@
 
     <br><br>
     <%= f.label :goal, "Assign to a goal" %>
-    <%= f.collection_select :goal_id, Goal.all, :id, :name, :accomplished %>
+    <%= f.collection_select :goal_id, Goal.all, :id, :name %>
 
     <%= f.submit %>
 <% end %>
