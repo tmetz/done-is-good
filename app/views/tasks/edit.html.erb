@@ -8,7 +8,7 @@
     <%= f.check_box :done %>
 
     <%= f.label :goal %>
-    <%= f.collection_select Goal.all :goal %>
+    <%= f.collection_select :goal_id, Goal.all, :id, :name, :accomplished %>
 
     <%= f.submit %>
 <% end %>
