@@ -1,0 +1,11 @@
+<h1>Goals</h1>
+
+<% @goals.each do |goal| %>
+    <%= task.name %>
+    <% if goal.accomplished %>
+        <% finished = "Yes" %>
+    <% else %>
+        <% finished = "No" %>
+    <% end %>
+    Accomplished? <%= finished %>
+<% end %>
