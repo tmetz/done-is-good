@@ -1,0 +1,8 @@
+<h1> Goal information: </h1>
+
+<%= @goal.name %>
+<%= @goal.accomplished %>
+
+<%= link_to "Edit Goal", edit_goal_path(@goal) %>
+
+<%= link_to "Delete Goal", goal_path(@goal), method: :delete %>
