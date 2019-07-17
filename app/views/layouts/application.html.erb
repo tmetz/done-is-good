@@ -20,62 +20,69 @@
 
   <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Done Is Good</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Done Is Good</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Major Goals
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/goals">See All</a>
-            <a class="dropdown-item" href="/goals/new">Create New Goal</a>
-          </div>
-        </li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Major Goals
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/goals">See All</a>
+              <a class="dropdown-item" href="/goals/new">Create New Goal</a>
+            </div>
+          </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Tasks
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/tasks">See All</a>
-            <a class="dropdown-item" href="/tasks/new">Add new task</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <% if logged_in? %>
-            <a class="nav-link" href="/logout">Log Out</a>
-          <% else %>
-            <a class = "nav-link" href = "/login">Log In</a>
-          <% end %>
-        </li>
-      </ul>
-      <% if logged_in? %>
-        <span class="navbar-text">
-          Welcome, <%= current_user.username %>!
-        </span>
-      <% end %>
-    </div>
-  </nav>
-  <div class="container rounded border border-secondary">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tasks
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/tasks">See All</a>
+              <a class="dropdown-item" href="/tasks/new">Add new task</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <% if logged_in? %>
+              <%= link_to "Logout", logout_path(@session), method: :delete, class: 'nav-item' %>
+            <% else %>
+              
+              <%= link_to "Sign Up", signup_path, class: 'nav-item' %> OR <%= link_to "Log In", login_path, class: 'nav-item' %>
+            <% end %>
+          </li>
+        </ul>
+        <% if logged_in? %>
+          <span class="navbar-text">
+            Welcome, <%= current_user.username %>!
+          </span>
+        <% end %>
+      </div>
+    </nav>
+    <div class="container rounded border border-secondary">
 
-  <p style = "color:red; font-style:italic"><%= flash[:message] %></p>
-    <%= yield %>
+      <p style = "color:red; font-style:italic"><%= flash[:message] %></p>
+      <%= yield %>
 
-    <footer class="branding">
-      <small>&copy; 2019 <strong>Tammy Metz</strong></small>
-    </footer>
-  </div> <!-- container div -->
+      <footer class="branding">
+        <small>&copy; 2019 <strong>Tammy Metz</strong></small>
+      </footer>
+    </div> <!-- container div -->
     
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    
+    <!-- bootstrap drop-down menu won't work without this: -->
+    <script>
+      $(document).ready(function() {
+        $(".dropdown-toggle").dropdown();
+      });
+    </script>
   </body>
 </html>
