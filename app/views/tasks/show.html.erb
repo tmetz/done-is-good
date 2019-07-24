@@ -1,8 +1,15 @@
-<h1> Task information: </h1>
+<h2> Task: <%= @task.description %> </h2>
 
-<%= @task.description %>
-<%= @task.done %>
+<h5>
+<% if @task.done %>
+        <% finished = "Yes" %>
+    <% else %>
+        <% finished = "No" %>
+    <% end %>
+    Finished? <%= finished %>
+</h5>
 
-<%= link_to "Edit Task", edit_task_path(@task) %>
+<br><br>
+<%= link_to "Edit Task", edit_task_path(@task) %> - 
 
 <%= link_to "Delete Task", task_path(@task), method: :delete %>

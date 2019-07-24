@@ -3,12 +3,15 @@
 <%= form_for(@task) do |f| %>
     <%= f.label :description %>
     <%= f.text_field :description %>
+    <br>
 
     <%= f.label :done %>
     <%= f.check_box :done %>
+    <br>
 
     <%= f.label :goal %>
-    <%= f.collection_select :goal_id, Goal.all, :id, :name, :accomplished %>
+    <%= f.collection_select :goal_id, Goal.all, :id, :name %>
+    <br>
 
     <%= f.submit %>
 <% end %>
