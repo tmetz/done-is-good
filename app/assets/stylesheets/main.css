@@ -9,7 +9,7 @@ body {
     color: #1d2e1e;
   }
 
-  ul li {
+  .container ul li {
     list-style-type: none;
     background: #ffffff;
     margin: 10px;
