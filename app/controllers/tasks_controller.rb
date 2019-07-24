@@ -2,7 +2,11 @@ class TasksController < ApplicationController
 
 
     def new
-        @task = Task.new
+        if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
+            @task = goal.tasks.build
+        else
+            @task = Task.new
+        end
     end
 
     def create

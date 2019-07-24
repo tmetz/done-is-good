@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :tasks
   resources :incentives
-  resources :goals
+  resources :goals do
+    resources :tasks
+  end
+
   root 'sessions#home'
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
