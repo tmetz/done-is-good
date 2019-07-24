@@ -42,7 +42,7 @@ class GoalsController < ApplicationController
     private
 
     def set_goal
-        @goal = Task.find_by(id: params[:id])
+        @goal = Goal.find_by(id: params[:id])
         if !@goal
             redirect_to goals_path
         end

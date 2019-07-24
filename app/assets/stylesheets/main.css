@@ -4,3 +4,12 @@ body {
     font-family: Sans-Serif;
     line-height: 18px;
   }
+
+  a:link, a:visited {
+    color: #1d2e1e;
+  }
+
+  .container {
+    background-color: #96909e;
+    color: #2e065e;
+  }

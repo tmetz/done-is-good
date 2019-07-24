@@ -2,10 +2,13 @@
 
 <% @tasks.each do |task| %>
     <%= task.description %>
+    Goal this task belongs to:<br>
+    <%= task.goal.name %>
     <% if task.done %>
         <% finished = "Yes" %>
     <% else %>
         <% finished = "No" %>
     <% end %>
     Finished? <%= finished %>
+    <br><br>
 <% end %>
