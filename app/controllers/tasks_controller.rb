@@ -20,7 +20,11 @@ class TasksController < ApplicationController
     end
 
     def index
-        @tasks = Task.all
+        if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
+            @tasks = goal.tasks
+        else
+            @tasks = Task.all
+        end
     end
 
     def show
