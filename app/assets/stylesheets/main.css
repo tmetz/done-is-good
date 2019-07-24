@@ -9,6 +9,14 @@ body {
     color: #1d2e1e;
   }
 
+  ul li {
+    list-style-type: none;
+    background: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
   .container {
     background-color: #96909e;
     color: #2e065e;
