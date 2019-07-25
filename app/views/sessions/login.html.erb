@@ -1,5 +1,7 @@
 <h1>Log in here</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @user} %>
+
 <%= form_for@user, url: '/login' do |f| %>
 
     <%= f.label :username %>

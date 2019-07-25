@@ -1,5 +1,7 @@
 <h1>New Goal</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @goal} %>
+
 <%= form_for(@goal) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
