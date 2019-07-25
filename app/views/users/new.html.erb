@@ -2,12 +2,12 @@
 
 <%= form_for(@user) do |f| %>
 
-    <ul>
+    <div class = "error_list">
     <% @user.errors.full_messages.each do |error_message| %>
-        <li><%= error_message %></li>
-
+        <%= error_message %><br>
     <% end %>
-    </ul>
+    </div>
+   
     <%= f.label :username %>
     <%= f.text_field :username %>
 

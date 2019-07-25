@@ -22,6 +22,11 @@ body {
     color: #2e065e;
   }
 
-  .field_with_errors {
+  .field_with_errors input {
+    border: 2px solid red;
+  }
+
+  .error_list {
     color: red;
+    font-style: italic;
   }
