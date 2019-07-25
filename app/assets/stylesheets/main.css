@@ -21,3 +21,7 @@ body {
     background-color: #96909e;
     color: #2e065e;
   }
+
+  .field_with_errors {
+    color: red;
+  }

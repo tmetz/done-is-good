@@ -1,6 +1,13 @@
 <h1>Sign up here</h1>
 
 <%= form_for(@user) do |f| %>
+
+    <ul>
+    <% @user.errors.full_messages.each do |error_message| %>
+        <li><%= error_message %></li>
+
+    <% end %>
+    </ul>
     <%= f.label :username %>
     <%= f.text_field :username %>
 

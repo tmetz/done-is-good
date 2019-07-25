@@ -47,14 +47,12 @@
               <a class="dropdown-item" href="/tasks/new">Add new task</a>
             </div>
           </li>
-          <li class="nav-item">
-            <% if logged_in? %>
-              <%= link_to "Logout", logout_path(@session), method: :delete, class: 'nav-item' %>
-            <% else %>
-              
-              <%= link_to "Sign Up", signup_path, class: 'nav-item' %> OR <%= link_to "Log In", login_path, class: 'nav-item' %>
-            <% end %>
-          </li>
+          <% if logged_in? %>
+            <li class="nav-item">
+              <%= link_to "Logout", logout_path(@session), method: :delete, class: 'nav-link' %>
+            </li>
+          <% end %>
+          
         </ul>
         <% if logged_in? %>
           <span class="navbar-text">
