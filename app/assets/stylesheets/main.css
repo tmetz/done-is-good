@@ -12,9 +12,10 @@ body {
   .container ul li {
     list-style-type: none;
     background: #ffffff;
-    margin: 10px;
+    margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 10px 10px 5px #2f2240;
   }
 
   .container {
@@ -45,4 +46,5 @@ body {
   ul li.finished {
     background-color: #4d4c49;
     color: #1d2e1e;
+    box-shadow: none;
   }
