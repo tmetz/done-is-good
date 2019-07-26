@@ -10,6 +10,6 @@
 </h5>
 
 <br><br>
-<%= link_to "Edit Task", edit_task_path(@task) %> - 
+<%= link_to "Edit Task", edit_task_path(@task), class: "btn btn-outline-dark" %>  
 
-<%= link_to "Delete Task", task_path(@task), method: :delete %>
+<%= link_to "Delete Task", task_path(@task), method: :delete, class: "btn btn-outline-dark" %>

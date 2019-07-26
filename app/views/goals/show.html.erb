@@ -18,6 +18,6 @@
 <% end %>
 <br>
 
-<%= link_to "Edit Goal", edit_goal_path(@goal) %>
+<%= link_to "Edit Goal", edit_goal_path(@goal), class: "btn btn-outline-dark" %>
 
-<%= link_to "Delete Goal", goal_path(@goal), method: :delete %>
+<%= link_to "Delete Goal", goal_path(@goal), method: :delete, class: "btn btn-outline-dark" %>
