@@ -35,3 +35,8 @@ body {
   .finished {
     text-decoration: line-through;
   }
+
+  ul li.finished {
+    background-color: #4d4c49;
+    color: #1d2e1e;
+  }

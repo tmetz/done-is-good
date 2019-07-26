@@ -2,17 +2,13 @@
 
 <ul>
 <% @tasks.each do |task| %>
-    <li>
-    <strong>Task:</strong> <%= link_to task.description, task_path(task) %>
-    <br>
-    <strong>Belongs to goal:</strong> <%= link_to task.goal.name, goal_path(task.goal) %>
-    <br>
-    <% if task.done %>
-        <% finished = "Yes" %>
-    <% else %>
-        <% finished = "No" %>
-    <% end %>
-    <strong>Done?</strong> <%= finished %>
-    </li>
+   
+        <li class = "<%= 'finished' if task.done %>">
+        <strong>Task:</strong> <%= link_to task.description, task_path(task) %>
+        <br>
+        <strong>Belongs to goal:</strong> <%= link_to task.goal.name, goal_path(task.goal) %>
+        <br>
+        </li>
+    
 <% end %>
 </ul>
