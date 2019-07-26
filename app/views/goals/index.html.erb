@@ -1,8 +1,7 @@
 <h1>Goals</h1>
 
 <% @goals.each do |goal| %>
-    <strong>Goal: </strong>
-    <%= link_to goal.name, goal_path(goal) %>
+    <%= link_to goal.name, goal_path(goal), class: "btn btn-outline-dark btn-lg" %>
     <br>
     <% if goal.accomplished %>
         <% finished = "Yes" %>
@@ -12,3 +11,5 @@
     Accomplished? <%= finished %>
     <br><br>
 <% end %>
+
+
