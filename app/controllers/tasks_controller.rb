@@ -21,9 +21,9 @@ class TasksController < ApplicationController
 
     def index
         if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
-            @tasks = goal.tasks
+            @tasks = goal.tasks.order_by_age
         else
-            @tasks = Task.all
+            @tasks = Task.order_by_age
         end
     end
 
