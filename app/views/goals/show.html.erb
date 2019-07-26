@@ -1,7 +1,18 @@
-<h1> Goal information: </h1>
+<h2>Goal: <%= @goal.name %></h2>
 
-<%= @goal.name %>
-<%= @goal.accomplished %>
+<br>
+<% if @goal.accomplished %>
+        <% finished = "Yes" %>
+    <% else %>
+        <% finished = "No" %>
+    <% end %>
+    Accomplished? <%= finished %>
+<br><br>
+
+Tasks:<br>
+<% @goal.tasks.each do |task| %>
+    <%= task.description %><br>
+<% end %>
 
 <%= link_to "Edit Goal", edit_goal_path(@goal) %>
 
