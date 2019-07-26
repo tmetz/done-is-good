@@ -5,7 +5,7 @@
     <li>
     <strong>Task:</strong> <%= link_to task.description, task_path(task) %>
     <br>
-    <strong>Belongs to goal:</strong> <%= task.goal.name %>
+    <strong>Belongs to goal:</strong> <%= link_to task.goal.name, goal_path(task.goal) %>
     <br>
     <% if task.done %>
         <% finished = "Yes" %>
