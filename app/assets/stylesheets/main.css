@@ -30,3 +30,7 @@ body {
     color: red;
     font-style: italic;
   }
+
+  .finished {
+    text-decoration: line-through;
+  }
