@@ -13,7 +13,7 @@
 <strong>Tasks:</strong><br>
 <% @goal.tasks.each do |task| %>
     <div class = "<%= 'finished' if task.done %>">
-        <%= task.description %><br>
+        <%= link_to task.description, task_path(task) %>
     </div>
 <% end %>
 <br>
