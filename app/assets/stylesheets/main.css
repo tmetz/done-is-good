@@ -32,6 +32,11 @@ body {
     font-style: italic;
   }
 
+  .flash_errors {
+    color: red;
+    font-style: italic;
+  }
+
   .finished {
     text-decoration: line-through;
   }
