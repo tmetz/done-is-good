@@ -1,7 +1,8 @@
 <h2>Goal: <%= @goal.name %></h2>
 
 <br>
-Status: 
+<strong>Status: </strong>
+<br>
 <% if @goal.accomplished %>
         <%= 'Accomplished!' %>
     <% else %>
@@ -9,12 +10,13 @@ Status:
     <% end %>
 <br><br>
 
-Tasks:<br>
+<strong>Tasks:</strong><br>
 <% @goal.tasks.each do |task| %>
     <div class = "<%= 'finished' if task.done %>">
         <%= task.description %><br>
     </div>
 <% end %>
+<br>
 
 <%= link_to "Edit Goal", edit_goal_path(@goal) %>
 
