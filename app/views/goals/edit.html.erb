@@ -1,4 +1,4 @@
-<h1>New Goal</h1>
+<h1>Edit Goal</h1>
 
 <%= render partial: 'layouts/errors', locals: {object: @goal} %>
 
@@ -12,6 +12,6 @@
     <%= f.radio_button :accomplished, false %> No
     <br>
 
-    <%= f.submit "Create Goal" %>
+    <%= f.submit "Edit Goal" %>
 
 <% end %>
