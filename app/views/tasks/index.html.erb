@@ -1,9 +1,20 @@
 <h1>Tasks</h1>
 
 <ul>
-<% @tasks.each do |task| %>
+<% @tasks.unfinished.each do |task| %>
    
-        <li class = "<%= 'finished' if task.done %>">
+        <li>
+        <strong>Task:</strong> <%= link_to task.description, task_path(task) %>
+        <br>
+        <strong>Belongs to goal:</strong> <%= link_to task.goal.name, goal_path(task.goal) %>
+        <br>
+        </li>
+    
+<% end %>
+
+<% @tasks.finished.each do |task| %>
+   
+        <li class = "finished">
         <strong>Task:</strong> <%= link_to task.description, task_path(task) %>
         <br>
         <strong>Belongs to goal:</strong> <%= link_to task.goal.name, goal_path(task.goal) %>
