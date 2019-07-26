@@ -21,6 +21,7 @@ body {
     background-color: #96909e;
     color: #2e065e;
     margin: 16px auto;
+    box-shadow: 10px 10px 5px #2f2240;
   }
 
   .field_with_errors input {
