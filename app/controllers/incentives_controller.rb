@@ -8,7 +8,7 @@ class IncentivesController < ApplicationController
     end
 
     def create
-        @incentive = current_user.incentives.build(incentive_params)
+        @incentive = Incentive.new(incentive_params)
 
         if @incentive.save
             redirect_to incentive_path(@incentive)
@@ -50,7 +50,7 @@ class IncentivesController < ApplicationController
 
     private
 
-    def set_task
+    def set_incentive
         @incentive = Incentive.find_by(id: params[:id])
         if !@incentive
             redirect_to incentives_path
