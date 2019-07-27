@@ -1,0 +1,13 @@
+
+<ul>
+<% @incentives.each do |incentive| %>
+   
+    <li>
+    <strong>Incentive:</strong> <%= link_to incentive.description, incentive_path(incentive) %>
+    <br>
+    <strong>Belongs to goal:</strong> <%= link_to incentive.goal.name, goal_path(incentive.goal) %>
+    <br>
+    </li>
+
+<% end %>
+</ul>
