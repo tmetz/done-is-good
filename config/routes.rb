@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :incentives
   resources :goals do
     resources :tasks, only: [:new, :index]
+    resources :incentives, only: [:new, :index]
   end
 
   root 'sessions#home'
