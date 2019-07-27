@@ -49,3 +49,7 @@ body {
     box-shadow: none;
     margin-bottom: 10px;
   }
+
+  .btn-info {
+    border: 2px solid black;
+  }
