@@ -1,1 +1,9 @@
-<%= @incentive.description %>
+<div class = "incentive" style = 
+"background: linear-gradient(to right, #28ad3c <%= @incentive.goal.percent_complete %>%, 
+#574745 <%= @incentive.goal.percent_complete %>%)">
+
+<%= @incentive.description %> - 
+<%= @incentive.goal.percent_complete %>% of goal 
+<%= @incentive.goal.name %> met
+
+</div>
