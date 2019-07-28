@@ -1,0 +1,9 @@
+<div class = "incentive" style = 
+    "background: linear-gradient(to right, #28ad3c <%= incentive.goal.percent_complete %>%, 
+    #574745 <%= incentive.goal.percent_complete %>%)">
+
+    <%= link_to incentive.description, incentive_path(incentive) %> - 
+    <%= incentive.goal.percent_complete %>% of goal 
+    <%= link_to incentive.goal.name, goal_path(incentive.goal) %> met
+</div>
+<br><br>
