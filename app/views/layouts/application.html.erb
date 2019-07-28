@@ -47,6 +47,16 @@
               <a class="dropdown-item" href="/tasks/new">Add new task</a>
             </div>
           </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Incentives
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/incentives">See All</a>
+              <a class="dropdown-item" href="/incentives/new">Add new incentive</a>
+            </div>
+          </li>
           <% if logged_in? %>
             <li class="nav-item">
               <%= link_to "Logout", logout_path(@session), method: :delete, class: 'nav-link' %>
