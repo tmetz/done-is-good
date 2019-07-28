@@ -18,6 +18,7 @@
 <% end %>
 <br>
 
+<strong>Incentives for this goal:</strong><br>
 <% @goal.incentives.each do |incentive| %>
     <%= render :partial => "incentives/incentive_progress_bar", :locals => {incentive: incentive} %>
 <% end %>
