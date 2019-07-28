@@ -1,1 +1,8 @@
+num tasks: <%= @incentive.num_tasks %><br>
+
 <%= render :partial => "incentives/incentive_progress_bar", :locals => {incentive: @incentive} %>
+
+
+<%= link_to "Edit Incentive", edit_incentive_path(@incentive), class: "btn btn-outline-dark" %>  
+
+<%= link_to "Delete Incentive", incentive_path(@incentive), method: :delete, class: "btn btn-outline-dark" %>

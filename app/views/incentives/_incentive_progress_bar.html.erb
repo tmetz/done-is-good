@@ -3,7 +3,7 @@
     #574745 <%= incentive.percent_complete %>%)">
 
     <strong><%= link_to incentive.description, incentive_path(incentive) %></strong>
-     - <%= incentive.percent_complete %>% of goal 
+     - <%= incentive.percent_complete %>% of <%= incentive.num_tasks %> task(s) toward goal 
     <%= link_to incentive.goal.name, goal_path(incentive.goal) %> has been met
 </div>
 <br><br>

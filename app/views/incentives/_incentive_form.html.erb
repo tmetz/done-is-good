@@ -4,6 +4,9 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
 
+    <%= f.label :num_tasks, "How many tasks need to be finished?" %>
+    <%= f.number_field :num_tasks %>
+
     <br><br>
     <%= f.label :goal, "Assign to a goal" %>
     <%= f.collection_select :goal_id, Goal.all, :id, :name %>

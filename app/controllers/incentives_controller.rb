@@ -58,6 +58,6 @@ class IncentivesController < ApplicationController
     end
 
     def incentive_params
-        params.require(:incentive).permit(:description, :goal_id)
+        params.require(:incentive).permit(:description, :num_tasks, :goal_id)
     end
 end
