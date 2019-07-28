@@ -1,13 +1,16 @@
+<h1>Progress toward incentives:</h1>
 
-<ul>
 <% @incentives.each do |incentive| %>
    
-    <li>
-    <strong>Incentive:</strong> <%= link_to incentive.description, incentive_path(incentive) %>
-    <br>
-    <strong>Belongs to goal:</strong> <%= link_to incentive.goal.name, goal_path(incentive.goal) %>
-    <br>
-    </li>
+    <div class = "incentive" style = 
+    "background: linear-gradient(to right, #28ad3c <%= incentive.goal.percent_complete %>%, 
+    #574745 <%= incentive.goal.percent_complete %>%)">
+
+    <%= link_to incentive.description, incentive_path(incentive) %> - 
+    <%= incentive.goal.percent_complete %>% of goal 
+    <%= link_to incentive.goal.name, goal_path(incentive.goal) %> met
+    </div>
+    <br><br>
+
 
 <% end %>
-</ul>
