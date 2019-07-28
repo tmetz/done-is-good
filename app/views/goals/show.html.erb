@@ -18,6 +18,10 @@
 <% end %>
 <br>
 
+<% @goal.incentives.each do |incentive| %>
+    <%= render :partial => "incentives/incentive_progress_bar", :locals => {incentive: incentive} %>
+<% end %>
+
 <%= link_to "New Task", new_goal_task_path(@goal), class: "btn btn-outline-dark" %>
 
 <%= link_to "Edit Goal", edit_goal_path(@goal), class: "btn btn-outline-dark" %>
