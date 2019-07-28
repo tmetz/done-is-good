@@ -6,7 +6,7 @@
 <% if @goal.accomplished %>
         <%= 'Accomplished!' %>
     <% else %>
-        <%= 'In progress' %>
+        In progress - <%= @goal.percent_complete %>% done
     <% end %>
 <br><br>
 

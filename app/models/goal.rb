@@ -6,4 +6,8 @@ class Goal < ApplicationRecord
     scope :finished, -> {where(accomplished: true)}
     scope :unfinished, -> {where(accomplished: false)}
 
+    def percent_complete
+        100 * self.tasks.where(done: true).count / self.tasks.count
+    end
+
 end
