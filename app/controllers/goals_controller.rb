@@ -1,21 +1,22 @@
 class GoalsController < ApplicationController
     before_action :require_login
-    
+
     def new
         @goal = Goal.new
     end
 
     def create
-        @goal = Goal.new(goal_params)
+        @goal = current_user.goals.build(goal_params)
         if @goal.save
-            redirect_to goals_path
+            flash[:error] = "You must create at least one task for your goal."
+            redirect_to new_goal_task_path
         else
             render :new
         end
     end
 
     def index
-        @goals = Goal.all
+        @goals = current_user.goals.all
     end
 
     def show

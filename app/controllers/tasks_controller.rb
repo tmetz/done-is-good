@@ -23,7 +23,7 @@ class TasksController < ApplicationController
         if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
             @tasks = goal.tasks.order_by_age
         else
-            @tasks = Task.order_by_age
+            @tasks = current_user.tasks.order_by_age
         end
     end
 
