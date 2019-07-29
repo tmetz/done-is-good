@@ -9,7 +9,7 @@ class GoalsController < ApplicationController
         @goal = current_user.goals.build(goal_params)
         if @goal.save
             flash[:error] = "You must create at least one task for your goal."
-            redirect_to new_goal_task_path
+            redirect_to new_goal_task_path(@goal)
         else
             render :new
         end

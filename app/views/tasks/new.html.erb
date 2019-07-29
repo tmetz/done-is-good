@@ -1,3 +1,7 @@
 <h1>Create a task</h1>
 
+<div class = "flash_errors">
+    <%= flash[:error] %>
+</div>
+
 <%= render :partial => "tasks/task_form", :locals => {task: @task} %>
