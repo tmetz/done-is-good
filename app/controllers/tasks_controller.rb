@@ -6,6 +6,7 @@ class TasksController < ApplicationController
             @task = goal.tasks.build
         else
             @task = Task.new
+            @task.build_goal
         end
     end
 
@@ -60,6 +61,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-        params.require(:task).permit(:description, :done, :goal_id)
+        params.require(:task).permit(:description, :done, :goal_id, goal_attributes: [:name, :accomplished])
     end
 end

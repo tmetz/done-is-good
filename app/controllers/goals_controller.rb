@@ -16,7 +16,7 @@ class GoalsController < ApplicationController
     end
 
     def index
-        @goals = current_user.goals.all
+        @goals = current_user.goals
     end
 
     def show
@@ -38,6 +38,7 @@ class GoalsController < ApplicationController
 
     def destroy
         set_goal
+        goal_cleanup
         @goal.destroy
         redirect_to goals_path
     end
@@ -53,5 +54,14 @@ class GoalsController < ApplicationController
 
     def goal_params
         params.require(:goal).permit(:name, :accomplished)
+    end
+
+    def goal_cleanup
+        @goal.incentives.each do |i|
+            i.destroy
+        end
+        @goal.tasks.each do |t|
+            t.destroy
+        end
     end
 end

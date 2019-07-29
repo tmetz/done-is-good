@@ -11,15 +11,17 @@
     <%= f.label :goal, "Assign to a goal" %>
     <%= f.collection_select :goal_id, Goal.all, :id, :name %>
 
-    <%= f.label :goal, "Or add a new goal" %>
-    <%= f.fields_for :goal do |g| %>
-        <%= g.label :name %>
-        <%= g.text_field :name %>
+    <% if !params[:goal_id]
+        <h4>Or add a new goal</h4>
+        <%= f.fields_for :goal do |g| %>
+            <%= g.label :name %>
+            <%= g.text_field :name %>
 
-        <%= g.label :accomplished %>
-        <%= g.radio_button :accomplished, true %> Yes
-        <%= g.radio_button :accomplished, false %> No
+            <%= g.label :accomplished %>
+            <%= g.radio_button :accomplished, true %> Yes
+            <%= g.radio_button :accomplished, false %> No
 
+        <% end %>
     <% end %>
 
     <%= f.submit %>

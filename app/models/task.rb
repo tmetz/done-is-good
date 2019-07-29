@@ -4,6 +4,8 @@ class Task < ApplicationRecord
     belongs_to :goal
     belongs_to :user
 
+    accepts_nested_attributes_for :goal
+
     #scope :order_by_goal, -> {order(:goal.name)}
 
     scope :order_by_age, -> {order(:created_at)}

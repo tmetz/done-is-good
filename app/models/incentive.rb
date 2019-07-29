@@ -8,10 +8,6 @@ class Incentive < ApplicationRecord
     end
 
     def percent_complete
-        if self.goal?
-            100 * self.goal.tasks.where(done: true).count / self.num_tasks
-        else
-            0
-        end
+        100 * self.goal.tasks.where(done: true).count / self.num_tasks
     end
 end
