@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'thin'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 5.0.0'
 gem 'dotenv-rails'
 
 group :development, :test do

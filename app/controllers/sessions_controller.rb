@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class SessionsController < ApplicationController
 
     def new
@@ -16,11 +18,29 @@ class SessionsController < ApplicationController
         end
     end
 
+    def fbcreate
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+            u.username = auth['info']['name']
+            u.email = auth['info']['email']
+            u.image = auth['info']['image']
+            u.password = SecureRandom.hex
+        end
+        
+        session[:user_id] = @user.id
+        redirect_to '/goals'
+    end
+
     def home
     end
 
     def destroy
         session.clear
         redirect_to '/'
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
     end
 end

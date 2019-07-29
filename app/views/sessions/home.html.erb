@@ -7,5 +7,7 @@
     <%= link_to "New Goal", new_goal_path, class: "btn btn-outline-dark" %>
 
 <% else %>
-    <%= link_to "Sign Up", signup_path, class: "btn btn-outline-dark" %> OR <%= link_to "Log In", login_path, class: "btn btn-outline-dark" %>
+    <%= link_to "Sign Up", signup_path, class: "btn btn-outline-dark" %> OR 
+    <%= link_to "Log In", login_path, class: "btn btn-outline-dark" %> OR
+    <%= link_to "Sign in through Facebook", "/auth/facebook", class: "btn btn-outline-dark" %>
 <% end %>
