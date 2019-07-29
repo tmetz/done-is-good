@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-
+    before_action :require_login
 
     def new
         if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
