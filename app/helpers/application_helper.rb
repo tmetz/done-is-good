@@ -9,7 +9,9 @@ module ApplicationHelper
 
     def require_login
         #return head(:forbidden) unless session.include? :user_id
-        flash[:error] = "You must be logged in first."
-        redirect_to '/'
+        if !session.include? :user_id
+            flash[:error] = "You must be logged in first."
+            redirect_to '/'
+        end
     end
 end
