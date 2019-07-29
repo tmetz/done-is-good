@@ -8,8 +8,8 @@
     <%= f.check_box :done %>
 
     <br><br>
-    <%= f.label :goal, "Assign to a goal" %>
-    <%= f.collection_select :goal_id, Goal.all, :id, :name %>
+    <%= f.label :goal_id, "Assign to a goal" %>
+    <%= f.collection_select :goal_id, Goal.all, :id, :name, prompt: true %>
 
     <% if !params[:goal_id] %>
         <h4>Or add a new goal</h4>

@@ -16,7 +16,8 @@ class GoalsController < ApplicationController
     end
 
     def index
-        @goals = current_user.goals
+        #@goals = current_user.goals.distinct
+        @goals = Goal.all_for_user(current_user[:id])
     end
 
     def show
