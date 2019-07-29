@@ -1,5 +1,9 @@
 <h1>Welcome</h1>
 
+<div class = "flash_errors">
+    <%= flash[:error] %>
+</div>
+
 <p>Use <em>Done Is Good!</em> to help track your goals, task by task.</p>
 
 <% if logged_in? %>
