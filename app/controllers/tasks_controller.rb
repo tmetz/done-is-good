@@ -6,6 +6,7 @@ class TasksController < ApplicationController
             @task = goal.tasks.build
         else
             @task = Task.new
+            @task.user = current_user
             @task.build_goal
         end
     end
