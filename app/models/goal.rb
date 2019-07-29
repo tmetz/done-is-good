@@ -3,6 +3,8 @@ class Goal < ApplicationRecord
     has_many :users, through: :tasks
     has_many :incentives
 
+    validates :name, :accomplished, presence: true
+
     scope :finished, -> {where(accomplished: true)}
     scope :unfinished, -> {where(accomplished: false)}
 

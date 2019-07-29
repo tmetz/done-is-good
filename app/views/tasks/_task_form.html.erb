@@ -11,7 +11,7 @@
     <%= f.label :goal, "Assign to a goal" %>
     <%= f.collection_select :goal_id, Goal.all, :id, :name %>
 
-    <% if !params[:goal_id]
+    <% if !params[:goal_id] %>
         <h4>Or add a new goal</h4>
         <%= f.fields_for :goal do |g| %>
             <%= g.label :name %>
