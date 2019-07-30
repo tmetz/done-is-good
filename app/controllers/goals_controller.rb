@@ -9,7 +9,9 @@ class GoalsController < ApplicationController
         @goal = current_user.goals.build(goal_params)
         if @goal.save
             flash[:error] = "You must create at least one task for your goal."
-            redirect_to new_goal_task_path(@goal)
+            @task = @goal.tasks.build(description: "Placeholder task - replace this text with your description", user_id: current_user[:id], done: false)
+            @task.save
+            redirect_to edit_goal_task_path(@goal, @task)
         else
             render :new
         end

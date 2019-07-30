@@ -12,8 +12,18 @@ class Goal < ApplicationRecord
         100 * self.tasks.where(done: true).count / self.tasks.count
     end
 
+    def last_task?
+        if self.tasks.count <= 1
+            true
+        else
+            false
+        end
+    end
+
     def self.all_for_user(user_id)
         joins(:users).where("users.id = ?", user_id).distinct
     end
+
+
 
 end

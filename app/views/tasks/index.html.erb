@@ -1,5 +1,9 @@
 <h1>Tasks</h1>
 
+<div class = "flash_errors">
+    <%= flash[:error] %>
+</div>
+
 <ul>
 <% @tasks.unfinished.each do |task| %>
    

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :incentives
   resources :goals do
-    resources :tasks, only: [:new, :index]
+    resources :tasks, only: [:new, :index, :edit]
     resources :incentives, only: [:new, :index]
   end
 

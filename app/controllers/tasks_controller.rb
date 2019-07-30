@@ -2,6 +2,7 @@ class TasksController < ApplicationController
     before_action :require_login
 
     def new
+        @goals = Goal.all_for_user(current_user[:id])
         if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
             @task = goal.tasks.build
         else
@@ -34,6 +35,7 @@ class TasksController < ApplicationController
     end
 
     def edit
+        @goals = Goal.all_for_user(current_user[:id])
         set_task
     end
 
@@ -48,6 +50,13 @@ class TasksController < ApplicationController
 
     def destroy
         set_task
+        if @task.goal.last_task? # if the last task is deleted, we need to delete the whole goal or stuff breaks
+            @task.goal.incentives.each do |i|
+                i.destroy
+            end
+            flash[:error] = "The goal #{@task.goal.name} has no more tasks, so it has been deleted."
+            @task.goal.destroy
+        end
         @task.destroy
         redirect_to tasks_path
     end

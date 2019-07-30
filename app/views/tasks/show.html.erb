@@ -1,5 +1,7 @@
 <h2> Task: <%= @task.description %> </h2>
 
+<%= render partial: 'layouts/errors', locals: {object: @task} %>
+
 <h5>
     Part of goal: <%= link_to @task.goal.name, goal_path(@task.goal) %>
     <br>

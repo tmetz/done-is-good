@@ -10,7 +10,7 @@ Specs:
 **Incentive belongs to goal**
 
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
-**User has many goals through tasks**
+**User has many goals through tasks**, 
 **Goal has many users through tasks**
 
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)

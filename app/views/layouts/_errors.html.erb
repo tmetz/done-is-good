@@ -1,3 +1,7 @@
+<div class = "flash_errors">
+    <%= flash[:error] %>
+</div>
+
 <div class = "error_list">
 <% object.errors.full_messages.each do |error_message| %>
     <%= error_message %><br>
