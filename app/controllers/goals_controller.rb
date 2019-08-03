@@ -17,9 +17,14 @@ class GoalsController < ApplicationController
         end
     end
 
+    # index only shows goals for the current user.  all shows everybody's goals.
     def index
         #@goals = current_user.goals.distinct
         @goals = Goal.all_for_user(current_user[:id])
+    end
+
+    def all
+        @goals = Goal.all_for_others(current_user[:id])
     end
 
     def show
@@ -38,6 +43,8 @@ class GoalsController < ApplicationController
             render :edit
         end
     end
+
+    
 
     def destroy
         set_goal

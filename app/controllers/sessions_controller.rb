@@ -18,11 +18,10 @@ class SessionsController < ApplicationController
         end
     end
 
-    def fbcreate
+    def ghcreate
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
             u.username = auth['info']['name']
             u.email = auth['info']['email']
-            u.image = auth['info']['image']
             u.password = SecureRandom.hex
         end
         

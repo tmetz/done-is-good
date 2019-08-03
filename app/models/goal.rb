@@ -24,6 +24,10 @@ class Goal < ApplicationRecord
         joins(:users).where("users.id = ?", user_id).distinct
     end
 
+    def self.all_for_others(user_id)
+        joins(:users).where("users.id != ?", user_id).distinct
+    end
+
 
 
 end

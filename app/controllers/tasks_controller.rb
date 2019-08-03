@@ -48,6 +48,16 @@ class TasksController < ApplicationController
         end
     end
 
+    def adduser
+        @task = current_user.tasks.build(description: params[:description], goal_id: params[:goal_id])
+
+        if @task.save
+            redirect_to task_path(@task)
+        else
+            render :new
+        end
+    end
+
     def destroy
         set_task
         if @task.goal.last_task? # if the last task is deleted, we need to delete the whole goal or stuff breaks

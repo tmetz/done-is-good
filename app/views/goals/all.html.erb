@@ -1,0 +1,50 @@
+<h1>Goals</h1>
+
+<h5>These goals belong to users other than you.  
+If you would like to help another user work on one of them, 
+describe the task you will be working on to add yourself to the goal.  
+You may add more tasks later.</h5>
+
+<br>
+<h5>In progress:</h5>
+
+<table>
+    <% @goals.unfinished.each do |goal| %>
+        <tr>
+            <td>
+                <%= form_tag tasks_adduser_url, :method => :patch do %>
+                    <strong>Goal:</strong> <%= link_to goal.name, goal_path(goal) %><br>
+                    <strong>Task:</strong> 
+                    <%= hidden_field_tag 'goal_id', goal.id %>
+                    <%= text_field_tag 'description', nil, placeholder: 'Describe your task here' %>
+                    <%= submit_tag "Create task" %>
+                <% end %>
+                <br><br>
+            </td>
+                
+        </tr>
+    <% end %>
+</table>
+
+<br>
+<h5>Accomplished!</h5>
+<table>
+    <% @goals.finished.each do |goal| %>
+        <tr>
+            <td>
+                <%= form_tag tasks_adduser_url, :method => :patch do %>
+                    <strong>Goal:</strong> <%= link_to goal.name, goal_path(goal) %><br>
+                    <strong>Task:</strong> 
+                    <%= hidden_field_tag 'goal_id', goal.id %>
+                    <%= text_field_tag 'description', nil, placeholder: 'Describe your task here' %>
+                    <%= submit_tag "Create task" %>
+                <% end %>
+                <br><br>
+            </td>
+                
+        </tr>
+    <% end %>
+</table>
+
+
+
