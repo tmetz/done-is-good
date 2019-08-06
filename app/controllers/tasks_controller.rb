@@ -8,7 +8,7 @@ class TasksController < ApplicationController
         else
             @task = Task.new
             @task.user = current_user
-            @task.build_goal
+            @task.build_goal # build_goal because task belongs_to goal
         end
     end
 
@@ -18,6 +18,7 @@ class TasksController < ApplicationController
         if @task.save
             redirect_to task_path(@task)
         else
+            @task.build_goal
             render :new
         end
     end
