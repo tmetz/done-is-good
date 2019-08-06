@@ -12,16 +12,18 @@
     <%= f.collection_select :goal_id, @goals, :id, :name, prompt: true %>
 
     <% if !params[:goal_id] %>
-        <h4>Or add a new goal</h4>
-        <%= f.fields_for :goal do |g| %>
-            <%= g.label :name %>
-            <%= g.text_field :name %>
+        <div class = "new_form_attribute">
+            <h4>Or add a new goal</h4>
+            <%= f.fields_for :goal do |g| %>
+                <%= g.label :name %>
+                <%= g.text_field :name %>
 
-            <%= g.label :accomplished %>
-            <%= g.radio_button :accomplished, true %> Yes
-            <%= g.radio_button :accomplished, false %> No
+                <%= g.label :accomplished %>
+                <%= g.radio_button :accomplished, true %> Yes
+                <%= g.radio_button :accomplished, false %> No
 
-        <% end %>
+            <% end %>
+        </div>
     <% end %>
 
     <%= f.submit %>

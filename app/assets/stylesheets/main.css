@@ -59,3 +59,9 @@ body {
     border-radius: 20px;
     padding: 5px;
   }
+
+  .new_form_attribute {
+    background-color: #a66965;
+    padding: 10px;
+    margin: 20px;
+  }
