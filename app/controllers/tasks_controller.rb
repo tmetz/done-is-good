@@ -18,6 +18,7 @@ class TasksController < ApplicationController
         if @task.save
             redirect_to task_path(@task)
         else
+            @goals = Goal.all_for_user(current_user[:id])
             @task.build_goal
             render :new
         end
