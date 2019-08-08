@@ -1,15 +1,24 @@
 <%= render partial: 'layouts/errors', locals: {object: goal} %>
 
 <%= form_for(goal) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <div class = "form-group col-md-6">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+        <br>
+        Accomplished?<br>
+        <div class = "form-check">
+            <%= f.radio_button :accomplished, true, class: 'form-check-input' %>
+            <%= f.label :accomplished, 'Yes', class: 'form-check-label' %>
+        </div>
+        <div class = "form-check">
+            <%= f.radio_button :accomplished, false, class: 'form-check-input' %>
+            <%= f.label :accomplished, 'No', class: 'form-check-label' %>
+        </div>
+    </div>
+
+
     <br>
 
-    <%= f.label :accomplished %>
-    <%= f.radio_button :accomplished, true %> Yes
-    <%= f.radio_button :accomplished, false %> No
-    <br>
-
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-dark' %>
 
 <% end %>
