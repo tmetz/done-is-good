@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Done Is Good is a task tracker built in Ruby on Rails that allows users to set larger goals based on short tasks.
 
-Things you may want to cover:
+To use, fork and clone this repo.
 
-* Ruby version
+Run 'bundle install'
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run 'rails s' and access the site at http://localhost:3000
