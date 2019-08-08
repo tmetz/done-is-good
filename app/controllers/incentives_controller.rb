@@ -22,7 +22,7 @@ class IncentivesController < ApplicationController
         if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
             @incentives = goal.incentives.all
         else
-            @incentives = Incentive.all
+            @incentives = Incentive.all_for_user(current_user[:id])
         end
     end
 
