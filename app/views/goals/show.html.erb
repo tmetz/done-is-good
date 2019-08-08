@@ -3,11 +3,7 @@
 <br>
 <strong>Status: </strong>
 <br>
-<% if @goal.accomplished %>
-        <%= 'Accomplished!' %>
-    <% else %>
-        In progress - <%= @goal.percent_complete %>% done
-    <% end %>
+    <%= accomplished_status %>
 <br><br>
 
 <strong>Tasks:</strong><br>
