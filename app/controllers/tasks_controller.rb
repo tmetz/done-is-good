@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-    before_action :require_login
 
     def new
         @goals = Goal.all_for_user(current_user[:id])
