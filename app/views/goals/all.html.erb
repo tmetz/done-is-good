@@ -14,7 +14,12 @@ You may add more tasks later.</h5>
             <td>
                 <%= form_tag tasks_adduser_url, :method => :patch do %>
                     <strong>Goal:</strong> <%= link_to goal.name, goal_path(goal) %><br>
-                    <strong>Task:</strong> 
+                    <strong>Users:</strong> 
+                        <% goal.distinct_users.each do |user| %>
+                            <span class = "user_highlight"><%= user.username %></span>
+                        <% end %>
+                    <br>
+                    <strong>Add Task:</strong> 
                     <%= hidden_field_tag 'goal_id', goal.id %>
                     <%= text_field_tag 'description', nil, placeholder: 'Describe your task here' %>
                     <%= submit_tag "Create task" %>
@@ -34,7 +39,12 @@ You may add more tasks later.</h5>
             <td>
                 <%= form_tag tasks_adduser_url, :method => :patch do %>
                     <strong>Goal:</strong> <%= link_to goal.name, goal_path(goal) %><br>
-                    <strong>Task:</strong> 
+                    <strong>Users:</strong> 
+                        <% goal.distinct_users.each do |user| %>
+                            <span class = "user_highlight"><%= user.username %></span>
+                        <% end %>
+                    <br>
+                    <strong>Add Task:</strong> 
                     <%= hidden_field_tag 'goal_id', goal.id %>
                     <%= text_field_tag 'description', nil, placeholder: 'Describe your task here' %>
                     <%= submit_tag "Create task" %>

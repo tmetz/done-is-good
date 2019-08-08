@@ -65,3 +65,9 @@ body {
     padding: 10px;
     margin: 20px;
   }
+
+  .user_highlight {
+    background-color: #47965c;
+    padding: 2px;
+    margin: 3px;
+  }

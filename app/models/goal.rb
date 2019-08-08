@@ -12,6 +12,10 @@ class Goal < ApplicationRecord
         100 * self.tasks.where(done: true).count / self.tasks.count
     end
 
+    def distinct_users
+        self.users.distinct
+    end
+
     def last_task?
         if self.tasks.count <= 1
             true
