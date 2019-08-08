@@ -4,24 +4,26 @@
     <div class = "form-group col-md-6">
         <%= f.label :description %>
         <%= f.text_field :description, class: 'form-control' %>
+        <br>
+
+        <div class = "form-check">
+            <%= f.check_box :done, class: 'form-check-input' %>
+            <%= f.label :done, class: 'form-check-label' %>
+        </div>
     </div>
 
-    <div class = "form-check">
-        <%= f.check_box :done, class: 'form-check-input' %>
-        <%= f.label :done, class: 'form-check-label' %>
-    </div>
-
-    <br><br>
     <div class = "form-group col-md-6">
         <%= f.label :goal_id, "Assign to a goal" %>
         <%= f.collection_select :goal_id, @goals, :id, :name, {prompt: true}, {class: 'form-control'} %>
     </div>
 
+
+
     <% if !params[:goal_id] %>
-        <div class = "new_form_attribute">
+        <div class = "new_form_attribute col-5">
             <h4>Or add a new goal</h4>
             <%= f.fields_for :goal do |g| %>
-                <div class = "form-group col-md-6">
+                <div class = "form-group">
                     <%= g.label :name %>
                     <%= g.text_field :name, class: 'form-control' %>
                 </div>
