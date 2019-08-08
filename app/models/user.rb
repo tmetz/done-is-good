@@ -7,5 +7,4 @@ class User < ApplicationRecord
     has_many :tasks
     has_many :goals, through: :tasks
 
-    has_many :incentives, through: :goals
 end

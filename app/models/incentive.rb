@@ -1,6 +1,5 @@
 class Incentive < ApplicationRecord
     belongs_to :goal
-    belongs_to :user
 
     validate :max_tasks
 

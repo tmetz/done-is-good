@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     end
 
     def adduser
-        @task = current_user.tasks.build(description: params[:description], goal_id: params[:goal_id])
+        @task = current_user.tasks.build(description: params[:description], done: false, goal_id: params[:goal_id])
 
         if @task.save
             redirect_to task_path(@task)
