@@ -19,8 +19,13 @@ class IncentivesController < ApplicationController
     end
 
     def index
-        if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
-            @incentives = goal.incentives.all
+        if params[:goal_id]
+            goal = Goal.find_by_id(params[:goal_id])
+            if goal
+                @incentives = goal.incentives.all
+            else
+                redirect_to goals_path
+            end
         else
             @incentives = Incentive.all_for_user(current_user[:id])
         end
