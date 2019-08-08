@@ -16,9 +16,8 @@ class GoalsController < ApplicationController
         end
     end
 
-    # index only shows goals for the current user.  all shows everybody's goals.
+    # index only shows goals for the current user.  all shows everybody else's goals.
     def index
-        #@goals = current_user.goals.distinct
         @goals = Goal.all_for_user(current_user[:id])
     end
 

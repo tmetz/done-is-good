@@ -5,12 +5,7 @@
 <h5>
     Part of goal: <%= link_to @task.goal.name, goal_path(@task.goal) %>
     <br>
-    <% if @task.done %>
-        <% finished = "Yes" %>
-    <% else %>
-        <% finished = "No" %>
-    <% end %>
-    Finished? <%= finished %>
+    <%= finished_status %>
 </h5>
 
 <br><br>
