@@ -1,30 +1,42 @@
 <%= render partial: 'layouts/errors', locals: {object: task} %>
 
 <%= form_for(task) do |f| %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <div class = "form-group col-md-6">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: 'form-control' %>
+    </div>
 
-    <%= f.label :done %>
-    <%= f.check_box :done %>
+    <div class = "form-check">
+        <%= f.check_box :done, class: 'form-check-input' %>
+        <%= f.label :done, class: 'form-check-label' %>
+    </div>
 
     <br><br>
-    <%= f.label :goal_id, "Assign to a goal" %>
-    <%= f.collection_select :goal_id, @goals, :id, :name, prompt: true %>
+    <div class = "form-group col-md-6">
+        <%= f.label :goal_id, "Assign to a goal" %>
+        <%= f.collection_select :goal_id, @goals, :id, :name, {prompt: true}, {class: 'form-control'} %>
+    </div>
 
     <% if !params[:goal_id] %>
         <div class = "new_form_attribute">
             <h4>Or add a new goal</h4>
             <%= f.fields_for :goal do |g| %>
-                <%= g.label :name %>
-                <%= g.text_field :name %>
-
-                <%= g.label :accomplished %>
-                <%= g.radio_button :accomplished, true %> Yes
-                <%= g.radio_button :accomplished, false %> No
-
+                <div class = "form-group col-md-6">
+                    <%= g.label :name %>
+                    <%= g.text_field :name, class: 'form-control' %>
+                </div>
+                Accomplished?<br>
+                <div class = "form-check">
+                    <%= g.radio_button :accomplished, true, class: 'form-check-input' %>
+                    <%= g.label :accomplished, 'Yes', class: 'form-check-label' %>
+                </div>
+                <div class = "form-check">
+                    <%= g.radio_button :accomplished, false, class: 'form-check-input' %>
+                    <%= g.label :accomplished, 'No', class: 'form-check-label' %>
+                </div>
             <% end %>
         </div>
     <% end %>
 
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-dark' %>
 <% end %>

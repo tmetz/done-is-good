@@ -2,10 +2,10 @@
 
 <%= form_for(incentive) do |f| %>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
 
     <%= f.label :num_tasks, "How many tasks need to be finished?" %>
-    <%= f.number_field :num_tasks %>
+    <%= f.number_field :num_tasks, class: 'form-control' %>
 
     <br><br>
     <%= f.label :goal, "Assign to a goal" %>
