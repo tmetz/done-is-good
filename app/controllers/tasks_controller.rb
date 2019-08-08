@@ -24,8 +24,13 @@ class TasksController < ApplicationController
     end
 
     def index
-        if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
-            @tasks = goal.tasks.order_by_age
+        if params[:goal_id]
+            goal = Goal.find_by_id(params[:goal_id])
+            if goal
+                @tasks = goal.tasks.order_by_age
+            else
+                redirect_to goals_path
+            end
         else
             @tasks = current_user.tasks.order_by_age
         end
