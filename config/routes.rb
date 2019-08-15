@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/goals/all' => 'goals#all'
   patch '/tasks/adduser' => 'tasks#adduser'
+  get '/activeusers' => 'users#active'
   #get '/auth/facebook/callback' => 'sessions#fbcreate'
   get '/auth/github/callback' => 'sessions#ghcreate'
   

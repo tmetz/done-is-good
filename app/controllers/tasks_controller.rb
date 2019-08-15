@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+    before_action :set_task, only: [:show, :edit, :update, :destroy]
+
     def new
         @goals = Goal.all_for_user(current_user[:id])
         if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
@@ -37,16 +39,13 @@ class TasksController < ApplicationController
     end
 
     def show
-        set_task
     end
 
     def edit
         @goals = Goal.all_for_user(current_user[:id])
-        set_task
     end
 
     def update
-        set_task
         if @task.update(task_params)
             redirect_to task_path(@task)
         else
@@ -65,7 +64,6 @@ class TasksController < ApplicationController
     end
 
     def destroy
-        set_task
         if @task.goal.last_task? # if the last task is deleted, we need to delete the whole goal or stuff breaks
             @task.goal.incentives.each do |i|
                 i.destroy

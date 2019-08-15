@@ -16,6 +16,10 @@ class UsersController < ApplicationController
         end
     end
 
+    def active
+        @users = User.all_active
+    end
+
     private
 
     def user_params

@@ -1,5 +1,7 @@
 class GoalsController < ApplicationController
 
+    before_action :set_goal, only: [:show, :edit, :update, :destroy]
+
     def new
         @goal = Goal.new
     end
@@ -18,23 +20,24 @@ class GoalsController < ApplicationController
 
     # index only shows goals for the current user.  all shows everybody else's goals.
     def index
-        @goals = Goal.all_for_user(current_user[:id])
+        #@goals = Goal.all_for_user(current_user[:id])
+        @unfinished = Goal.all_for_user(current_user[:id]).unfinished
+        @finished = Goal.all_for_user(current_user[:id]).finished
     end
 
     def all
-        @goals = Goal.all_for_others(current_user[:id])
+        #@goals = Goal.all_for_others(current_user[:id])
+        @unfinished = Goal.all_for_others(current_user[:id]).unfinished
+        @finished = Goal.all_for_others(current_user[:id]).finished
     end
 
     def show
-        set_goal
     end
 
     def edit
-        set_goal
     end
 
     def update
-        set_goal
         if @goal.update(goal_params)
             redirect_to goal_path(@goal)
         else
@@ -45,8 +48,7 @@ class GoalsController < ApplicationController
     
 
     def destroy
-        set_goal
-        goal_cleanup
+        @goal.goal_cleanup
         @goal.destroy
         redirect_to goals_path
     end
@@ -64,12 +66,4 @@ class GoalsController < ApplicationController
         params.require(:goal).permit(:name, :accomplished)
     end
 
-    def goal_cleanup
-        @goal.incentives.each do |i|
-            i.destroy
-        end
-        @goal.tasks.each do |t|
-            t.destroy
-        end
-    end
 end

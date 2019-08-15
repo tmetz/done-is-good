@@ -24,6 +24,15 @@ class Goal < ApplicationRecord
         end
     end
 
+    def goal_cleanup
+        self.incentives.each do |i|
+            i.destroy
+        end
+        self.tasks.each do |t|
+            t.destroy
+        end
+    end
+
     def self.all_for_user(user_id)
         joins(:users).where("users.id = ?", user_id).distinct
     end

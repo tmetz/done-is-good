@@ -1,4 +1,6 @@
 class IncentivesController < ApplicationController
+
+    before_action :set_incentive, only: [:show, :edit, :update, :destroy]
     
     def new
         if params[:goal_id] && goal = Goal.find_by_id(params[:goal_id])
@@ -32,15 +34,12 @@ class IncentivesController < ApplicationController
     end
 
     def show
-        set_incentive
     end
 
     def edit
-        set_incentive
     end
 
     def update
-        set_incentive
         if @incentive.update(incentive_params)
             redirect_to incentive_path(@incentive)
         else
@@ -49,7 +48,6 @@ class IncentivesController < ApplicationController
     end
 
     def destroy
-        set_incentive
         @incentive.destroy
         redirect_to incentives_path
     end

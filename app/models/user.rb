@@ -7,4 +7,8 @@ class User < ApplicationRecord
     has_many :tasks
     has_many :goals, through: :tasks
 
+    def self.all_active
+        includes(:tasks).where('tasks.done = ?', true).references(:tasks)
+    end
+
 end

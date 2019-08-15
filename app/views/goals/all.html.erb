@@ -9,7 +9,7 @@ You may add more tasks later.</h5>
 <h5>In progress:</h5>
 
 <table>
-    <% @goals.unfinished.each do |goal| %>
+    <% @unfinished.each do |goal| %>
         <tr>
             <td>
                 <%= form_tag tasks_adduser_url, :method => :patch do %>
@@ -34,7 +34,7 @@ You may add more tasks later.</h5>
 <br>
 <h5>Accomplished!</h5>
 <table>
-    <% @goals.finished.each do |goal| %>
+    <% @finished.each do |goal| %>
         <tr>
             <td>
                 <%= form_tag tasks_adduser_url, :method => :patch do %>
