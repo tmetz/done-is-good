@@ -42,9 +42,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-#gem 'thin'
 gem 'omniauth'
-#gem 'omniauth-facebook', '~> 5.0.0'
+
 gem 'omniauth-github'
 
 
